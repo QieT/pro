@@ -1,0 +1,105 @@
+<!-- <view class="loading" hidden="{{loadingHidden}}" >
+	<image src="../../../image/loading.gif"></image>
+</view>  -->
+<!-- <view id="wrapper-content"> -->
+	<!-- <view class="support-pad"> -->
+		
+		<!-- 广告页面 -->
+		<view class="ad-wrap" wx:if="{{adShow}}">
+			<view class="ad-box">
+				<view class="ad-container">
+					<image src="../../image/close.png" class="close-btn" bindtap="close"></image>
+					<image src="{{adList.advert_img_url}}" mode="widthFix" class="ad-img"></image>
+				</view>
+			</view>
+		</view>	
+
+		<view class="padd30">
+			<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px; margin-top: 0;" class="list" bindscrolltolower="bindDownLoad" lower-threshold='100'>
+				<swiper indicator-dots="{{indicatorDots}}"
+				autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{indicatorActiveColor}}" indicator-color="{{indicatorColor}}">
+
+
+				<block wx:for="{{slide}}" wx:key="*this">
+					<swiper-item>
+						<navigator url="/pages/detail/index?cid={{item.pol_art_id}}">
+							<image src="{{item.pol_img_url}}" class="slide-image"/>
+						</navigator>
+					</swiper-item>
+				</block>
+			</swiper>
+
+			<view class="pt-42-30">
+				<!-- <view> -->
+					<!-- <view class="tit-box-0">
+						<image src="../../image/icon3.png" class="icon3"></image>
+						<text class="h2-tit">{{title}}</text>
+					</view> -->
+
+
+					<view class="tit-box-center">
+						<view class="h2-tit-center"><image src="../../image/icon3.png" class="icon3"></image>精选专栏</view>
+					</view>
+
+					<!-- 专栏1 水平滚动 -->
+					<scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" class="clearfloat">
+						<!-- <scroll-view scroll-x="true"  class="clearfloat"> -->
+							<!-- 专题，专栏合并 -->
+							<block wx:for="{{merge_c}}" wx:key="*this" >
+								<view class="scrollX" bindtap="mergeNav" data-id="{{item.column_id}}">
+									<image src="{{item.column_img_url}}" mode=""></image>
+									<view class="scroll-font">{{ item.column_title}}</view>
+								</view>
+							</block>
+					</scroll-view>
+				</view>
+				<!-- </view> -->
+
+				<!-- 固定专栏 -->
+				<view class='banner-fix '>
+					<!-- <image src="{{fixImg}}"></image> -->
+					<image src="{{fixImg}}" mode="widthFix"></image>
+				</view>
+
+				<view class="pt-42-30">
+					<!-- <view class="tit-box">
+						<image src="../../image/icon3.png" class="icon3"></image>
+						<text class="h2-tit">{{title}}</text>
+					</view> -->
+					<view class="tit-box-center">
+						<view class="h2-tit-center"><image src="../../image/icon3.png" class="icon3"></image>最新推荐</view>
+					</view>
+
+					<!-- todo： 循环 -->
+					<view wx:for="{{list}}" wx:key="{{index}}"> 
+						<view bindtap="topicNav" data-id="{{item.art_id}}"> 
+							<!-- <navigator url="/pages/detail/index?id={{item.id}}&cid={{item.cid}}"> -->
+								<image src="{{item.art_image_url}}" mode="widthFix" class="img"></image>
+								<text class="scroll-title">{{item.art_title}}</text> 
+								<!-- </navigator> -->
+							</view>
+						</view>  
+						<view class="txt" wx-if="{{lower}}">已经到底了</view>	
+					</view>
+
+					<view class="body-view">  
+						<loading hidden="{{hidden}}" bindchange="loadingChange">  
+							加载中...  
+						</loading>  
+					</view>  
+					<!-- 版权信息 -->
+					<view class="support-box">
+						<navigator url="/pages/companyinfo/index">
+							<!-- <image src="../../image/wboll.png" class="wboll-img"> -->
+							<!-- </image> -->
+							<text></text> 
+						</navigator> 
+					</view>
+				</scroll-view>
+
+			</view>
+			<!-- </view> -->
+
+
+
+

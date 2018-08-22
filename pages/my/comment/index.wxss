@@ -1,0 +1,20 @@
+page { background: #fff; color: #161616; }
+.fl { float: left; margin-top: 10rpx; }
+.fr { float: right; margin-top: 10rpx; }
+
+.padd30 { padding: 0 30rpx; }
+
+.list { border-bottom: 1px solid #e0e0e0; padding-bottom: 30rpx; }
+.title { display: block; font-size: 30rpx; color: #161616; margin-top: 20rpx;}
+.ft { font-size: 24rpx; color: #848484; margin-left: 24rpx;}
+.icon8 { width: 24rpx; height: 29rpx; vertical-align: sub; }
+
+.my-content { padding: 14rpx 20rpx; border-radius: 10rpx; font-size: 29rpx; color: #161616; background: #f2f2f2; margin-top: 20rpx; }
+.auto-ft { font-size: 24rpx; color: #ffa508; }
+.txt {text-align:center; margin-top:20px; color:rgba(155,155,155,.6); }
+.comment-title{
+	font-size:30rpx;
+	color:source_title;
+	padding-top:10px;
+	display:block;
+}

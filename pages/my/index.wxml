@@ -1,0 +1,31 @@
+<view id="wrapper-content">
+  <view class="support-pad">
+    <view class="pad36">
+      <text class='dot'></text>
+    </view>
+
+    <view class="pad36 clearfloat">
+      <navigator url="/pages/my/comment/index" hover-class="navigator-hover" class="clearfloat">
+        <image src="../../image/icon4.png" class="icon4"></image>
+        <text class="txt">我的评论</text>
+        <image src="../../image/icon7.png" class="icon7"></image>
+        </navigator>
+      </view>
+
+    <view class="pad36 clearfloat">
+      <navigator url="https://h5.youzan.com/v2/showcase/usercenter?alias=12x5y6srs" hover-class="navigator-hover" class="clearfloat">
+        <image src="../../image/icon5.png" class="icon5"></image>
+        <text class="txt">我的购买</text>
+        <image src="../../image/icon7.png" class="icon7"></image>
+      </navigator>
+    </view>
+    <view class="pad36 clearfloat">
+      <navigator url="https://m.weike.fm/account/" hover-class="navigator-hover" class="clearfloat">
+        <image src="../../image/icon6.png" class="icon6"></image>
+        <text class="txt">我的课程</text>
+        <image src="../../image/icon7.png" class="icon7"></image>
+      </navigator>
+    </view>
+  </view>
+  <button class='login' open-type='getUserInfo' wx:if="{{show}}" bindgetuserinfo='onGotUserInfo'>登陆授权</button>
+</view>

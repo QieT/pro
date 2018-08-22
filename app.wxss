@@ -1,0 +1,165 @@
+/**app.wxss**/
+@import 'style/weui.wxss';
+@import 'wxParse/wxParse.wxss';
+
+page{ background: #f6f2ef; }
+
+page { background: #fff; height:100%; }
+#wrapper-content { min-height: 100%; }
+.padd-0-30 { padding: 0 30rpx; background: #fff; }
+.padd-30-0 { padding: 30rpx 0; }
+
+
+.none { display: none; }
+.fl { float: left; }
+.fr { float: right; }
+.mt10 { margin-top: 10rpx; }
+.mt20 { margin-top: 20rpx; }
+.mt30 { margin-top: 30rpx; }
+.mt40 { margin-top: 40rpx; }
+.mt50 { margin-top: 50rpx; }
+.mt60 { margin-top: 60rpx; }
+.clearfloat:after{visibility:hidden; content:""; font-size:0; clear:both; height:0; display:block;}
+.clearfloat{zoom:1}
+.clear { clear: both; font-size: 0; line-height: 0; height:0; margin:0; padding:0;}
+button:after { content: none; }
+
+/* 三角图标 */
+.weui-cell-ft:after {
+    content: " ";
+    display: inline-block;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    height: 8px;
+    width: 8px;
+    border-width: 1px 1px 0 0;
+    border-color: #b2b2b2;
+    border-style: solid;
+    position: relative;
+    margin-left: 10rpx;
+}
+
+.font36{
+	font-size: 36rpx;
+}
+.font32{
+	font-size: 32rpx;
+}
+.font30{
+	font-size: 30rpx;
+}
+.font24{
+	font-size: 24rpx;
+}
+.font26{
+	font-size: 26rpx;
+}
+.font28{
+	font-size: 28rpx;
+}
+.nodata{
+    margin-top: 30rpx;
+    color: #b3b3b3;
+    text-align: center;
+    width: 100%;
+    font-size: 24rpx;
+}
+
+/* 弹窗 */
+.cover{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, .85);
+	z-index: 100;
+}
+.cover .modal{
+	position: absolute;
+	top: 186rpx;
+	left: 80rpx;
+	width: 600rpx;
+	
+	background: #fff;
+	border-radius: 4rpx;
+	font-size: 28rpx;
+	color: #1f1c23;
+	text-align: center;
+}
+.cover .modal .main-sec{
+	padding: 50rpx 0 60rpx;
+}
+.cover .modal image{
+	width: 250rpx;
+	height: 210rpx;
+	margin: 0 auto 30rpx;
+}
+.cover .modal .btn-sec{
+	font-size: 32rpx;
+	color: #1f1c23;
+	display: flex;
+	display: -webkit-flex;
+}
+.cover .modal .btn-sec view{
+	flex: 1;
+	-webkit-flex: 1;
+	padding: 34rpx 0;
+}
+.cover .modal .qrcode-sec{
+	padding: 40rpx 30rpx 0;
+}
+.cover .modal .qrcode-input{
+	padding: 40rpx 0 46rpx;
+}
+.cover .modal .input-box{
+	border: 1px solid #dedede;
+	padding: 10rpx;
+	margin-top: 38rpx;
+}
+.cover .modal .btn-sure{
+	background: #d8d8d8;
+	color: #fff;
+}
+.cover .modal .btn-sure.able{
+	background: #ecce89;
+	color: #1f1c23;
+}
+.cover .modal .close{
+	background: #fff url('https://h5cdn.wboll.com/static/mina/youka/close.png') no-repeat center;
+	background-size: 28rpx;
+	padding: 28rpx;
+	display: inline-block;
+	float: right;
+	margin-top: -14rpx;
+}
+
+/* 技术支持 */
+.support-box {
+	/* margin: 40rpx auto; */
+	padding: 40px 0;
+	font-size: 24rpx;
+	color:rgba(155,155,155,.6);
+	text-align: center;
+}
+.sup-logo {
+	width: 180rpx;
+	height: 42rpx;
+	margin-bottom: 8rpx;
+}
+
+/* 广告 */
+.ad-wrap { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index:1; background: rgba(0,0,0,0.4); }
+.ad-box { position:fixed; top:0; left:0; bottom:0; right:0; margin:auto; width:630rpx; height:990rpx; background:none; }
+.ad-wrap .ad-container { position: relative; border-radius:20rpx; background:none; }
+.ad-wrap .close-btn { width: 50rpx; height: 75rpx; float: right; margin-right: 20rpx;}
+.ad-wrap .ad-img { border-radius: 20rpx; width: 100%;}
+
+
+/* 底部版权 */
+.support-pad { background:#fff; padding:0 30rpx 180rpx 30rpx; }
+.support-box { background:#fff; margin-top: -90px; color: rgba(155,155,155,.6); padding: 40rpx 0; text-align: center; font-size: 24rpx; }
+.support-box-grey { background:#f6f2ef; margin-top: -90px; color: rgba(155,155,155,.6); padding: 40rpx 0; text-align: center; font-size: 24rpx; }
+.support-box image, .support-box-grey image { width: 180rpx; height: 41rpx; display: block; margin: 0 auto 20rpx; }
+/*.support-box .navigator-hover { background-color: #fff; opacity: 1; }*/
+.navigator-hover { background-color: #fff; opacity: 1; }

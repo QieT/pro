@@ -1,0 +1,134 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view wx:if="{{show}}" id="wrapper-content">
+    <view class="support-pad" style="background: #f2f2f2">
+        <view class="support-pad-container">
+            <view class="padd30">
+                <text class="title">{{info.art_title}}</text>
+                <text class="ft1">{{info.art_publish_time}}</text>
+            </view>
+            <view class="padd-0-30">
+                <view class="video-box" wx:if="{{!!info.art_voice_url}}">
+                    <view class="video-con">
+                        <view class="video-l">
+                            <view class="audio-box">
+                                <audio id="myAudio" src="{{info.art_voice_url}}" bindtap="audioPlayPause" bindtimeupdate="bindtimeupdate" bindended="bindended"></audio>
+                                <image src="../../image/icon-play.png" class="icon-play"></image>
+                            </view>
+                        </view>
+                        <view class="video-r">
+                            <text class="video-title">{{info.art_title}}</text>
+                            <!-- <text class="source">来自文思东方 </text> -->
+                            <view class="progress-box">
+                                <view class="progress">
+                                    <view class="inner" animation="{{animationData}}" style="width:{{progress}}">
+                                        <image src="../../image/dot.png" class="dot"></image>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="clearfloat progress-ft">
+                                <text class="fl">{{info.art_publish_time}}</text>
+                                <text class="fr" wx:if="{{totleTime}}">{{totleTime}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <!-- todo: 视频 -->
+                <view class="video-box" wx:if="{{!!info.art_video_url}}">
+                    <video id="myVideo" src="{{info.art_video_url}}" poster="{{info.art_video_img_url}}" controls="false"></video>
+                </view>
+
+
+                <view class="padd-30-0">
+
+                    <!-- 内容 -->
+                    <view class="">
+                        <view class="wxParse">
+                            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+                        </view>
+                    </view>
+
+                    <view class="container">
+                        <view class="clearfloat">
+                            <view class="fl">
+                                <text class="auto-ft">阅读</text>
+                                <text class="read-ft">{{info.art_show_click}}</text>
+                            </view>
+                            <view class="fl" bindtap="topicZan">
+                                <image wx:if="{{source_click == 0}}" src="../../image/icon8.png" class="icon8"></image>
+                                <image wx:if="{{source_click == 1}}" src="../../image/icon8-on.png" class="icon8"></image>
+                                <text class="ft">{{info.art_show_like}}</text>
+                            </view>
+                            <button class="fr white" open-type="share" bindtap="onShareAppMessage">
+                                <image src="../../image/icon9-on.png" class="icon9"></image>
+                                <text class="ft">分享</text>
+                            </button>
+                            <!-- <view class="fr" bindtap="onShareAppMessage">
+              <image src="../../image/icon9-on.png" class="icon9"></image>
+              <text class="ft">分享</text>
+            </view>
+          -->
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+
+            <!-- 留言 -->
+            <view class="padd30-nobg">
+                <view class="write-liuyan fr" wx:if="{{!comment}}" bindtap="liuyanNav" data-title="{{info.art_title}}" data-cid="{{art_id}}">
+                    <!-- <navigator class="write-liuyan fr" url="/pages/liuyan/index?title={{info.title}}&id={{info.id}}&cid={{info.cid}}"> -->
+                    <image src="../../image/icon9.png" class="liuyan-icon"></image>
+                    <text class="write">写留言</text>
+                </view>
+            </view>
+
+
+            <!-- 留言 -->
+            <view class="padd30 mt-20" wx:if="{{comment}}">
+                <view class="liuyan-tit-con">
+                    <image src="../../image/line.png" class="line"></image>
+                    <text class="liuyan-title">精选留言</text>
+                </view>
+
+
+                <!-- 写留言 -->
+                <view class="clearfloat" wx:if="{{comment}}">
+                    <view class="write-liuyan fr" bindtap="liuyanNav" data-title="{{info.art_title}}" data-cid="{{art_id}}">
+                        <image src="../../image/icon9.png" class="liuyan-icon"></image>
+                        <text class="write">写留言</text>
+                    </view>
+                </view>
+
+                <view class="liuyan-list" wx:if="{{comment}}" wx:for="{{comment}}">
+                    <view class="clearfloat pt-20">
+                        <image src="{{item.avatarurl}}" class="header-img"></image>
+                        <view class="right-box">
+                            <text class="nickname">{{item.nickname}}</text>
+                            <text class="liuyan-content">{{item.com_content}}</text>
+                            <text class="liuyan-time">{{item.com_time}}</text>
+
+                            <view class="zan-box" bindtap="clickZan" data-no="{{index}}" data-num='{{item.com_id}}'>
+                                <view class="fr">
+
+                                    <image wx:if="{{item.is_agree == 0}}" src="../../image/icon8.png" class="icon8"></image>
+                                    <image wx:if="{{item.is_agree == 1}}" src="../../image/icon8-on.png" class="icon8"></image>
+                                    <text class="ft">{{item.com_approve}}</text>
+                                </view>
+                            </view>
+                        </view>
+
+                        <!-- 作者回复 -->
+                        <!-- <view class="auth-right-box" wx:if="{{item.reply}}">
+            <view class="auth-reply"><span></span>作者回复</view>  
+            <text class="liuyan-content">{{item.reply}}</text>
+            <text class="liuyan-time">{{item.reply_at}}</text>
+          </view> -->
+
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+    <view wx:else style='text-align:center'></view>

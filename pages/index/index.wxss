@@ -1,0 +1,78 @@
+/* 地址 */
+.pad-30 { padding: 30rpx; font-size: 28rpx; color: #878787; }
+.md-h1 { text-align: center; font-size: 32rpx; font-weight: 500; color: #000; }
+.md-bold { font-weight: bold; }
+.md-br { height: 2rpx; display: block; }
+/*.md-img image { width: 100%; display: block; }*/
+/*.p-t-42 { padding-top: 84rpx; }*/
+image { width: 100%; display: block; }
+
+
+.pad { padding: 0 30rpx 10rpx; }
+.pad-lr { padding: 0 30rpx; }
+
+.tit-box { padding:12rpx 30rpx 12rpx; }
+.tit-box-0 { padding:12rpx 30rpx 12rpx 0; }
+
+view { background: #fff;}
+swiper-item image { width: 100%; }
+swiper { height: 480rpx; }
+.h2-tit { font-size: 32rpx; color: #161616;  padding-left: 10rpx; }
+
+
+/*精选专栏*/
+.pt-42-30 { padding: 84rpx 30rpx 0; position: relative;}
+.tit-box-center {
+	position: absolute;
+	padding:12rpx 0; 
+	width: 220rpx;
+	left: 50%;
+	margin-left: -110rpx;
+	top: 0;
+}
+.h2-tit-center { padding-left: 60rpx; position: relative; }
+.h2-tit-center image { position: absolute; left: 0; top: 0; }
+.icon3 { display:inline-block; width: 38rpx; height: 40rpx; vertical-align: sub; margin-top:6rpx; }
+
+.scrollX { 
+	/*width: -webkit-calc((100% - 20rpx*2)/3); 
+	width: calc((100% - 20rpx*2)/3); */
+
+	width: 250rpx;
+	height: auto; 
+	margin-right: 20rpx; 
+	border-radius: 10rpx; 
+	display: inline-block; 
+}
+.scrollX image { width: 100%; height: 250rpx; border-radius: 10rpx; }
+.scrollX:last-child { margin-right: 0; }
+.scroll-font { 
+	font-size:28rpx;
+	color:#161616;
+	text-align:center;
+	line-height:35px;
+}
+/*scroll-view {padding-bottom:36rpx; margin-bottom:4px}*/
+.scroll-title {
+	/*padding:20rpx 0;*/
+	height: 70rpx;
+	line-height: 70rpx;
+	display:block;
+	font-size:28rpx;
+	color:#161616;
+
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+::-webkit-scrollbar {/*隐藏滚轮*/
+	display: none;
+}
+
+
+.banner-fix image { width: 100%; /*height: 360rpx;*/ }
+.list .img { width: 100%; /*height: 440rpx;*/ border-radius: 10rpx; }
+
+.txt { text-align: center; padding: 60rpx 0; font-size:28rpx; color:#b5b0b0; }
+.support-box { margin-top: 0; }

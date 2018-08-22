@@ -1,0 +1,15 @@
+page { background: #fff; }
+.padd30 { padding: 0 30rpx; }
+.pad36 { position: relative; padding: 36rpx 0; border-bottom: 1px solid #e0e0e0;}
+.dot { display: block; border-radius: 50%; width: 14rpx; height: 14rpx; margin:12px 0; background: #ffce08;}
+
+.icon4 { position: absolute; width: 40rpx; height: 32rpx; left: 0; top: 50%; margin-top: -16rpx; }
+.icon5 { position: absolute; width: 36rpx; height: 40rpx; left: 0; top: 50%; margin-top: -20rpx; }
+.icon6 { position: absolute; width: 33rpx; height: 40rpx; left: 0; top: 50%; margin-top: -20rpx; }
+.icon7 { position: absolute; width: 11rpx; height: 20rpx; right: 0; top: 50%; margin-top: -10rpx; }
+.txt { font-size: 28rpx;  padding-left:68rpx;}
+.login{
+	width: 80%;
+	margin-top: 20rpx;
+	border-radius: 16rpx;
+}

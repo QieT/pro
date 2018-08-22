@@ -1,0 +1,27 @@
+<view id="wrapper-content">
+  <view class="support-pad" style="background:#f6f2ef;">
+    <view class="padd30-0">
+      <text class="title">{{title}}</text>
+    </view>
+
+    <view>
+      <form bindsubmit="bindFormSubmit">
+        <view class="content">
+          <textarea placeholder="留言将有公众号筛选后显示，对所有人可见。" name="textarea"/>
+        </view>
+        <view class="padd30">
+          <button class="submit" form-type="submit">提交</button>
+        </view> 
+      </form>
+    </view>
+  </view>
+</view>
+
+<!-- 版权信息 -->
+<view class="support-box-grey">
+  <navigator url="/pages/companyinfo/index">
+    <!-- <image src="../../image/wboll.png" class="wboll-img"> -->
+    <!-- </image> -->
+    <text>微播易道提供技术支持</text>  
+  </navigator>
+</view>

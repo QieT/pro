@@ -1,0 +1,43 @@
+<view id="wrapper-content">
+  <view class="support-pad">
+    <view wx:if="{{info.length == 0}}" class="txt">暂无内容</view>
+    
+    <!-- todo: 循环 -->
+    <view class="list" wx:for="{{info}}" wx:key="*this">
+      <!-- <text class="title" wx:if="{{index == 0}}">{{item.source_title}}</text> -->
+      <view class="container">
+        <view class="my-comment">
+          <text class="comment-title">{{item.com_art_title}}</text>
+          <view class="clearfloat">
+            <view class="fl">
+              <text class="font24">我的评论</text>
+              <text class="ft">{{item.com_time}}</text>
+            </view>
+
+            <view class="fr">
+              <image src="../../../image/icon8-on.png" class="icon8"></image>
+              <text class="ft">{{item.com_approve}}</text>
+            </view>
+          </view>
+          <view class="my-content">{{item.com_content}}</view>
+        </view>
+
+        <!-- todo: 作者回复 -->
+        <!-- <view class="my-comment" wx:if="{{!!item.reply}}"> 
+          <view class="clearfloat">
+            <view class="fl">
+              <text class="auto-ft">作者回复 </text>
+              <text class="ft">{{item.reply_at}}</text>
+            </view>
+
+            <view class="fr">
+              <image src="../../../image/icon8-on.png" class="icon8"></image>
+              <text class="ft">14</text>
+            </view>
+          </view>
+          <view class="my-content">{{item.reply}}</view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>

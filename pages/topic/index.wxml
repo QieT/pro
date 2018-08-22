@@ -1,0 +1,26 @@
+<!-- 广告页面 -->
+<view class="ad-wrap" wx:if="{{adShow}}">
+  <view class="ad-box">
+    <view class="ad-container">
+      <image src="../../image/close.png" class="close-btn" bindtap="close"></image>
+      <image src="{{adList.advert_img_url}}" mode="widthFix" class="ad-img"></image>
+    </view>
+  </view>
+</view> 
+
+<view id="wrapper-content">
+  <view class="support-pad clearfloat">
+    <view wx:if="{{columnArray.length == 0}}" class="txt">暂无内容</view>
+    <block wx:for="{{columnArray}}" wx:key='$index'>
+      <view class="container" bindtap="navigateFun" data-cid="{{item.column_id}}">
+        <view class="img-box">
+          <image src="{{item.column_img_url}}"></image>
+        </view>
+        <view class="text-box">
+          <text class="tit">{{item.column_title}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
