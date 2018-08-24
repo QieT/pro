@@ -39,81 +39,76 @@ App({
 
 
   onLaunch: function () {
-    // console.log("onLaunch...")
-    // 调用API从本地缓存中获取数据
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
+	  var that = this;
+	  this.globalData.fkInfo = '';
+	  var storeInfo = wx.getStorageSync('storeInfo');
+	  return new Promise((resolve, reject) => {
+		  var userInfo = this.globalData.userInfo;
+
+		  // 从缓存中得到相关信息
+
+		  // 调用登录接口
+		  wx.login({
+			  success: function (r) {
+				  wx.request({
+					  url: 'https://win-east.cn/blog/public/api/init/' + r.code,
+					  method: 'GET',
+					  success: function (openIdRes) {
+						  console.info("登录成功返回的openId：", openIdRes);
+						  // 判断openId是否获取成功
+						  if (openIdRes.data.user_id) {
+							  // 有一点需要注意 询问用户 是否授权 那提示 是这API发出的
+							  wx.getUserInfo({
+								  success: function (data) {
+									  // 自定义操作
+									  // 绑定数据，渲染页面
+									  that.globalData.user_id = openIdRes.data.user_id
+								  },
+								  fail: function (failData) {
+									  console.info("用户拒绝授权");
+								  }
+							  });
+						  } else {
+							  wx.getUserInfo({
+								  success: function (data) {
+									  wx.request({
+										  url: 'https://win-east.cn/blog/public/api/adduser',
+										  method: 'POST',
+										  header: {
+											  'content-type': 'application/x-www-form-urlencoded' // 默认值
+										  },
+										  data: {
+											  openId: openIdRes.data.openid,
+											  userData: data.rawData
+										  },
+										  success: function (res) {
+											  that.globalData.user_id = res.data.user_id
+										  }
+									  })
+								  },
+								  fail: function (failData) {
+									  console.info("用户拒绝授权");
+								  }
+							  });
+							  console.info("获取用户openId失败");
+						  }
+					  },
+					  fail: function (error) {
+						  console.info("获取用户openId失败");
+						  console.info(error);
+					  }
+				  })
+			  },
+			  fail: function (err) {
+				  console.error("wx.login失败", err);
+				  reject('wx.login失败');
+			  }
+		  })
+	  });
   },
 
   getUserInfo: function() {
-    var that = this;
-    this.globalData.fkInfo = '';
-    var storeInfo = wx.getStorageSync('storeInfo');
-    var route = getCurrentPages()[getCurrentPages().length-1].__route__
-    return new Promise((resolve, reject) => {
-      var userInfo = this.globalData.userInfo;
-
-      // 从缓存中得到相关信息
-
-        // 调用登录接口
-        wx.login({
-          success: function (r) {
-            wx.request({
-				url: 'https://win-east.cn/blog/public/api/init/' + r.code,
-              method: 'GET',
-              success: function (openIdRes) {
-				  console.info("登录成功返回的openId：" , openIdRes);
-                // 判断openId是否获取成功
-                if (openIdRes.data.user_id) {
-                  　　　　　　　　// 有一点需要注意 询问用户 是否授权 那提示 是这API发出的
-                  wx.getUserInfo({
-                    success: function (data) {
-                      // 自定义操作
-                      // 绑定数据，渲染页面
-						that.globalData.user_id= openIdRes.data.user_id
-                    },
-                    fail: function (failData) {
-                      console.info("用户拒绝授权");
-                    }
-                  });
-                } else {
-					wx.getUserInfo({
-						success: function (data) {
-							wx.request({
-								url: 'https://win-east.cn/blog/public/api/adduser',
-								method: 'POST',
-								header: {
-									'content-type': 'application/x-www-form-urlencoded' // 默认值
-								},
-								data: {
-									openId: openIdRes.data.openid,
-									userData:data.rawData
-								},
-								success: function (res) {
-									that.globalData.user_id = res.data.user_id
-								}
-							})
-						},
-						fail: function (failData) {
-							console.info("用户拒绝授权");
-						}
-					});
-                  console.info("获取用户openId失败");
-                }
-              },
-              fail: function (error) {
-                console.info("获取用户openId失败");
-                console.info(error);
-              }
-            })
-          },
-          fail: function(err) {
-            console.error("wx.login失败", err);
-            reject('wx.login失败');
-          }
-        })
-    });
+   
   },
 
   logIn: function() {

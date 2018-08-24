@@ -17,7 +17,7 @@ Page({
                     success: function(openIdRes) {
                         console.info("登录成功返回的openId：", openIdRes);
                         // 判断openId是否获取成功
-                        if (openIdRes.data.user_id) {
+                        if (openIdRes.data.status!=10004) {
                             // 有一点需要注意 询问用户 是否授权 那提示 是这API发出的
                             wx.getUserInfo({
                                 success: function(data) {
@@ -33,6 +33,7 @@ Page({
                                 }
                             });
                         } else {
+							console.log('add');
                             wx.request({
                                 url: 'https://win-east.cn/blog/public/api/adduser',
                                 method: 'POST',
@@ -44,12 +45,14 @@ Page({
                                     userData: e.detail.rawData
                                 },
                                 success: function(res) {
-									console.log('添加用户',res)
+									console.log('添加用户',res);
                                     app.globalData.user_id = res.data.user_id
                                     that.setData({
                                         show: 0
                                     })
-                                }
+                                },fail:function(res){
+									console.log(res)
+								}
                             })
                         }
                     },

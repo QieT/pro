@@ -56,10 +56,30 @@ function wxParseImgTap(e) {
   var nowImgUrl = e.target.dataset.src;
   var tagFrom = e.target.dataset.from;
   if (typeof (tagFrom) != 'undefined' && tagFrom.length > 0) {
-    wx.previewImage({
-      current: nowImgUrl, // 当前显示图片的http链接
-      urls: that.data[tagFrom].imageUrls // 需要预览的图片http链接列表
-    })
+	  if (!(/^.*\.(gif|png|jpg|jpeg|bmp)$/i).test(nowImgUrl)){
+		  wx.request({
+			  url: 'https://win-east.cn/blog/public/api/changeurl',
+			  data:{
+				  url: nowImgUrl,
+				  type:'png'
+			  },
+			  success:function(res){
+				  console.log(res.data.newurl)
+				  if(res.data.status!=10001){
+					  return
+				  }
+				  wx.previewImage({
+					  current: res.data.newurl, // 当前显示图片的http链接
+					  urls: [res.data.newurl] // 需要预览的图片http链接列表
+				  })
+			  }
+		  })
+	  }else{
+		  wx.previewImage({
+			  current: nowImgUrl, // 当前显示图片的http链接
+			  urls: that.data[tagFrom].imageUrls // 需要预览的图片http链接列表
+		  })
+	  }
   }
 }
 
@@ -107,7 +127,7 @@ function wxAutoImageCal(originalWidth, originalHeight,that,bindName) {
   var autoWidth = 0, autoHeight = 0;
   var results = {};
   var padding = that.data[bindName].view.imagePadding;
-  windowWidth = realWindowWidth-2*padding;
+  windowWidth = realWindowWidth-60;
   windowHeight = realWindowHeight;
   //判断按照那种方式进行缩放
   // console.log("windowWidth" + windowWidth);

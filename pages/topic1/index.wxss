@@ -4,7 +4,7 @@ page { background: #fff; height:100%; }
 
 .pad30 { padding: 30rpx; }
 image { display: block; }
-.container { width: -webkit-calc((100% - 30rpx)/2); width: calc((100% - 30rpx)/2); float: left; }
+.container { width: -webkit-calc(47%); width: calc(47%); float: left; }
 .txt {text-align:center; margin-top:20px; color:rgba(155,155,155,.6); }
 .container image { width: 100%; height: 330rpx; border-radius: 10rpx; }
 .container .img-box { position: relative; }
