@@ -48,7 +48,7 @@ App({
 		  // 从缓存中得到相关信息
 
 		  // 调用登录接口
-		  wx.login({
+		  wx.login({ 
 			  success: function (r) {
 				  wx.request({
 					  url: 'https://win-east.cn/blog/public/api/init/' + r.code,
