@@ -12,7 +12,7 @@
         <view class="padd30">
           <button class="submit" form-type="submit">提交</button>
         </view> 
-      </form>
+      </form> 
     </view>
   </view>
 </view>
