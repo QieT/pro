@@ -1,17 +1,21 @@
-page { background: #f2f2f2; color: #161616; }
+page { background: #fff; color: #161616; }
 .fl { float: left; margin-top: 10rpx; }
 .fr { float: right; margin-top: 10rpx; }
 .white { background: #fff; }
-
+#wrapper-content{
+  padding-bottom: 100rpx;
+}
 .padd30 { padding: 30rpx; background: #fff; }
 .padd30-nobg { padding: 30rpx;  }
 .padd-lr { padding: 0 30rpx; }
 .pt-20 { padding-top: 20rpx; }
 .mt-20 { margin-top: 20rpx; }
-
+.support-pad {
+  padding:0 30rpx 30rpx 30rpx;
+}
 .support-pad-container { margin-left: -30rpx; margin-right: -30rpx; }
 
-image { display: block; }
+image { display: block;width: 0;height: 0 }
 video { width: 100%; }
 .video-box{ margin-top: 8px; background: #fff; overflow: hidden; }
 .video-con{ 
@@ -64,16 +68,12 @@ video { width: 100%; }
 .img { display: block; width: 100%; height: 440rpx; }
 .title { 
 	display: block; 
-	font-size: 40rpx; 
-	color: #161616; 
-	overflow: hidden;
-	text-overflow:ellipsis;
-	white-space: nowrap;
+	font-size: 34rpx; 
+	color: #333; 
 }
 .icon8 { width: 24rpx; height: 29rpx; display: inline-block; vertical-align: middle; }
 .icon9 { width: 24rpx; height: 29rpx; display: inline-block; vertical-align: middle; }
 .ft { font-size: 24rpx; color: #848484; margin-left: 24rpx;}
-.ft1 { font-size: 24rpx; color: #848484;}
 .auto-ft { font-size: 24rpx; color: #ffa508; }
 
 .read-ft { font-size: 24rpx; color: #848484; margin-left: 24rpx; margin-right: 40rpx; }
@@ -176,4 +176,50 @@ video { width: 100%; }
 .support-box-grey .navigator-hover { background-color: #f2f2f2; opacity: 1; }
 .wxParse image{
 		margin: auto
+}
+.doctor{
+  margin-left: 17rpx;
+  display: flex;
+  align-items: center
+}
+.doctor image{
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%
+}
+.dcmes{
+  margin-left: 14rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.ft1{
+  font-size: 20rpx;
+}
+.writedown{
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 80rpx;
+  box-shadow: 0 0 1px 0 #E98D8D;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0 24rpx;
+  width: 702rpx;
+}
+.writedown input{
+  padding: 0 20rpx;
+  width: 420rpx;
+  border-radius: 30rpx;
+  border: 2rpx solid #E2E0E0;
+  height: 60rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+.writedown view,.writedown image,.writedown button{
+  margin: 0;
+  padding: 0;
+  width: 38rpx;
+  height: 38rpx;
 }

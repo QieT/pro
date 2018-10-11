@@ -4,9 +4,9 @@ page { background: #fff; height:100%; }
 
 .pad30 { padding: 30rpx; }
 image { display: block; }
-.container { width: -webkit-calc(47%); width: calc(47%); float: left; }
+.container { width:310rpx; float: left;position: relative;margin-top: 34rpx; }
 .txt {text-align:center; margin-top:20px; color:rgba(155,155,155,.6); }
-.container image { width: 100%; height: 330rpx; border-radius: 10rpx; }
+.container image { width: 100%;height: 258rpx;border-radius: 4rpx;}
 .container .img-box { position: relative; }
 .container .img-box .topic-box { 
 	position: absolute;
@@ -47,13 +47,18 @@ border-left: 20rpx solid transparent;
 }
 */
 
-.container:nth-child(2n+1) { margin-right: 30rpx;}
-.container .text-box { padding: 16rpx 0; }
-.container .tit { font-size: 36rpx; color: #161616; display: block; }
+.container:nth-child(2n+1) { margin-right: 34rpx;margin-left: 16rpx;}
+.container .text-box { 
+  text-shadow: 0 1px 2px rgba(254,41,41, 0.5);
+  font-size: 36rpx;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 23rpx;
+  color: #fff;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-image: linear-gradient(90deg, #FD7385 0%, rgba(255,255,255,0.00) 100%);
+}
+.container .tit { font-size: 36rpx;display: block; }
 .container .read-num { font-size: 28rpx; color: #848484; display: block; }
-
-
-/* 底部版权 */
-.support-pad { padding:30rpx 30rpx 180rpx 30rpx; }
-.support-box { margin-top: -90px; color: rgba(155,155,155,.6); padding: 40rpx 0; text-align: center; font-size: 24rpx; }
-.support-box image { width: 180rpx; height: 41rpx; display: block; margin: 0 auto 20rpx; }

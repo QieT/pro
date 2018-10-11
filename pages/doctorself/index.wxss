@@ -1,0 +1,140 @@
+/* pages/doctorself/index.wxss */
+
+.banner {
+  width: 750rpx;
+  height: 400rpx;
+}
+
+.head {
+  position: absolute;
+  top: 0;
+  width: 750rpx;
+  height: 400rpx;
+}
+
+.head image {
+  display: block;
+  margin: auto;
+  margin-top: 55rpx;
+  width: 146rpx;
+  height: 146rpx;
+  border-radius: 50%;
+}
+
+.headname {
+  text-align: center;
+  font-size: 36rpx;
+  color: #333;
+}
+
+.headmes {
+  margin: auto;
+  margin-top: 46rpx;
+  width: 702rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: rgba(255, 255, 255, 0.80);
+  font-size: 30rpx;
+  line-height: 80rpx;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hm {
+  margin: 0 40rpx;
+  width: 260rpx;
+}
+
+.red {
+  width: 3rpx;
+  height: 40rpx;
+  background: #dedede;
+}
+
+.tit {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.red1 {
+  width: 2rpx;
+  margin-left: 4rpx;
+  margin-right: 18rpx;
+  height: 30rpx;
+  background: #fd7385;
+}
+
+.intro {
+  margin-top: 5rpx;
+  padding: 20rpx;
+  background: #fff;
+  font-size: 26rpx;
+  color: #333;
+
+}
+.job{
+  margin: 20rpx 0;
+}
+.toggle{
+  height: 40rpx;
+  color: #666;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 160rpx;
+  margin-left: 540rpx;
+  margin-top: 20rpx;
+}
+.toggle image{
+  width: 26rpx;
+  margin: 0 10rpx;
+  height: 14rpx;
+}
+.downblock{
+  margin-top: 30rpx;
+  margin-left: 20rpx
+}
+.artlist{
+  margin-top: 20rpx;
+  background: #fff;
+  height: 168rpx;
+  display: flex;
+  align-items: center;
+}
+.artimg{
+  box-shadow:  0rpx 0rpx 2rpx rgba(0, 0, 0, 0.5);
+  margin-left: 24rpx;
+  width: 210rpx;
+  height: 131rpx;
+  border-radius: 4rpx;
+}
+.artmain{
+  width: 460rpx;
+  margin-left: 38rpx;
+}
+.arttit{
+  font-size: 30rpx;
+  text-overflow:ellipsis;
+	white-space: nowrap;
+  color: #333;
+  overflow: hidden
+}
+.artmes{
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 20rpx;
+color: #666666;
+}
+.artmes image{
+  margin-right: 10rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.artmes text{
+  width: 110rpx;
+}

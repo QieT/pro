@@ -1,0 +1,2 @@
+<!--pages/link/index.wxml-->
+<web-view src='https://www.win-east.cn/wins/Application/Activity/View/demo.html'></web-view>

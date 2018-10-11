@@ -1,14 +1,14 @@
 //index.js
 //获取应用实例
 var app = getApp();
-var api = require("../../utils/api.js");
+var allList=[]
 Page({
 	data: {
 		userInfo: {},
 		dataCount: 0,
 		cid: 0,
 		list: [],
-
+    count:10,
 		adList: [],// 广告列表
 		setIntervalTime: 0,
 		adShow: false, // 广告展示
@@ -20,19 +20,22 @@ Page({
 		var that = this;
 		wx.request({
 			url: 'https://win-east.cn/blog/public/api/allart/' + option.cid,
+      data:{
+        user_id:app.globalData.user_id
+      },
 			success: function (res) {
-				console.log(res)
-				that.setData({
-					list: res.data.special
-				})
+        if (res.data.art[0]) {
+          allList = res.data.art
+          for (var i = 0; i < allList.length; i++) {
+            allList[i].art_show_click > 10000 && (allList[i].art_show_click = '' + parseInt(allList[i].art_show_click / 10000) + (parseInt(allList[i].art_show_click % 10000 / 1000) < 1 ? '.1' : parseInt(allList[i].art_show_click % 10000 / 1000)) + '万');
+          }
+
+          let l = allList.slice(0, 10);
+          that.setData({
+            list: l
+          })
+        }
 			}
-		})
-		api.request('/mina/wensi/index/getSource', 'GET', { page: 1, pagecount: 20, cid: option.cid }).then(function (data) {
-			that.setData({
-				cid: option.cid,
-				dataCount: data.data_count,
-				list: data.data
-			});
 		})
 
 
@@ -71,7 +74,13 @@ Page({
 			}
 		})
 	},
-
+  moreArt: function () {
+    let that = this;
+    that.setData({
+      list: allList.slice(0, that.data.count + 10),
+      count: that.data.count + 10
+    })
+  },
 	topicContent: function (e) {
 		var that = this;
 		app.globalData.type = 4;

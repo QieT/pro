@@ -4,7 +4,8 @@ var app = getApp();
 var api = require("../../utils/api.js");
 Page({
     data: {
-        show: 1
+        show: 1,
+      avatarurl:''
     },
     //事件处理函数
     onGotUserInfo: function(e) {
@@ -92,9 +93,20 @@ Page({
     onShow: function() {
 		var that=this;
         if (app.globalData.user_id) {
+          wx.request({
+            url: 'https://win-east.cn/blog/public/api/head/' + app.globalData.user_id,
+            success:function(res){
+              console.log(res.data.avatarurl)
+              that.setData({
+                avatarurl: res.data.avatarurl,
+                nickname: res.data.nickname
+              })
+            }
+          })
             that.setData({
                 show: 0
             })
         }
+        
     }
 })

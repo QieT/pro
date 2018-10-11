@@ -122,7 +122,7 @@ Page({
   navigateFun:function (e) {
 
     wx.navigateTo({
-      url: '/pages/topic1/index?cid=' + e.currentTarget.dataset.cid
+      url: '/pages/list1/index?cid=' + e.currentTarget.dataset.cid
     })
   },
   // 广告关闭按钮

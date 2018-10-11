@@ -1,20 +1,109 @@
-page { background: #fff; color: #161616; }
-.fl { float: left; margin-top: 10rpx; }
-.fr { float: right; margin-top: 10rpx; }
+.artlist {
+  margin-top: 20rpx;
+  background: #fff;
+  height: 168rpx;
+  display: flex;
+  align-items: center;
+}
+.txt{
+  margin: auto;
+  text-align: center;
+  margin-top: 50rpx;
+  color: #999;
+  font-size: 30rpx;
+}
+.artimg {
+  margin-left: 24rpx;
+  width: 210rpx;
+  height: 131rpx;
+}
 
-.padd30 { padding: 0 30rpx; }
+.artmain {
+  width: 460rpx;
+  margin-left: 38rpx;
+}
 
-.list { border-bottom: 1px solid #e0e0e0; padding-bottom: 30rpx; }
-.title { display: block; font-size: 30rpx; color: #161616; margin-top: 20rpx;}
-.ft { font-size: 24rpx; color: #848484; margin-left: 24rpx;}
-.icon8 { width: 24rpx; height: 29rpx; vertical-align: sub; }
+.arttit {
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+  overflow: hidden;
+}
 
-.my-content { padding: 14rpx 20rpx; border-radius: 10rpx; font-size: 29rpx; color: #161616; background: #f2f2f2; margin-top: 20rpx; }
-.auto-ft { font-size: 24rpx; color: #ffa508; }
-.txt {text-align:center; margin-top:20px; color:rgba(155,155,155,.6); }
-.comment-title{
-	font-size:30rpx;
-	color:source_title;
-	padding-top:10px;
-	display:block;
+.artmes {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 20rpx;
+  color: #666;
+}
+
+.artmes image {
+  margin-right: 10rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.artmes text {
+  width: 110rpx;
+}
+
+.comment {
+  margin: 16rpx 0;
+  margin-left: 24rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.bottomblock {
+  padding: 10rpx 0;
+  width: 702rpx;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  font-size: 24rpx;
+  color: #999;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.delete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.20);
+}
+
+.delete image {
+  top: 380rpx;
+  width: 486rpx;
+  height: 256rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.showts {
+  top: 450rpx;
+  position: absolute;
+  font-size: 30rpx;
+  color: #333;
+  left: 270rpx;
+}
+
+.tool {
+  position: absolute;
+  font-size: 30rpx;
+  width: 240rpx;
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  left: 345rpx;
+  top: 549rpx;
+}
+.dele{
+  color: #666;
 }

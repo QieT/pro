@@ -1,0 +1,35 @@
+<!-- 广告页面 -->
+<view class="ad-wrap" wx:if="{{adShow}}">
+  <view class="ad-box">
+    <view class="ad-container">
+      <image src="../../image/close.png" class="close-btn" bindtap="close"></image>
+      <image src="{{adList.image}}" mode="widthFix" class="ad-img"></image>
+    </view>
+  </view>
+</view>
+
+<scroll-view class='body' bindscrolltolower="moreArt" scroll-y="true" id="wrapper-content">
+  <view>
+    <view wx:if="{{list.length == 0}}" class="txt">暂无内容</view>
+    <block wx:for="{{list}}" wx:key="*this">
+      <view class="container" bindtap="topicContent" data-cid="{{item.art_id}}">
+        <view>
+          <view class="text-con">【{{item.special_title}}】{{item.art_title}}</view>
+          <view class='artmes'>
+
+          <view>浏览量{{item.art_show_click}}</view>
+          <view class='tomain'>
+            <!-- <image src='../../image/read.png'></image>
+            <text>{{(item.com_count/1)>100000?'100000+':item.com_count}}</text> -->
+            <image src="{{item.is_like==0?'../../image/icon8.png':'../../image/icon8-on.png'}}"></image>
+            <text>{{(item.art_show_like/1)>100000?'100000+':item.art_show_like}}</text>
+          </view>
+        </view>
+        </view>
+        
+        <image src="{{item.art_image_url}}"></image>
+
+      </view>
+    </block>
+  </view>
+</scroll-view>

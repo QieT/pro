@@ -1,43 +1,36 @@
 <view id="wrapper-content">
-  <view class="support-pad">
+  <view>
     <view wx:if="{{info.length == 0}}" class="txt">暂无内容</view>
-    
+
     <!-- todo: 循环 -->
-    <view class="list" wx:for="{{info}}" wx:key="*this">
-      <!-- <text class="title" wx:if="{{index == 0}}">{{item.source_title}}</text> -->
-      <view class="container">
-        <view class="my-comment">
-          <text class="comment-title">{{item.com_art_title}}</text>
-          <view class="clearfloat">
-            <view class="fl">
-              <text class="font24">我的评论</text>
-              <text class="ft">{{item.com_time}}</text>
-            </view>
-
-            <view class="fr">
-              <image src="../../../image/icon8-on.png" class="icon8"></image>
-              <text class="ft">{{item.com_approve}}</text>
-            </view>
+    <view wx:for="{{info}}">
+      <view class='comment'>{{item.com_content}}</view>
+      <view class='artlist' bindtap='todetail' data-id="{{item.art_id}}">
+        <image class='artimg' src="{{item.art_image_url}}"></image>
+        <view class='artmain'>
+          <view class='arttit'>{{item.art_title}}</view>
+          <view class='artmes'>
+            <image src='../../../image/icon10.png'></image>
+            <text>{{item.art_show_click/1>100000?'100000+':item.art_show_click}}</text>
+            <image src='../../../image/icon8.png'></image>
+            <text>{{item.art_show_like}}</text>
+            <image src='../../../image/read.png'></image>
+            <text>{{item.com_count}}</text>
           </view>
-          <view class="my-content">{{item.com_content}}</view>
         </view>
-
-        <!-- todo: 作者回复 -->
-        <!-- <view class="my-comment" wx:if="{{!!item.reply}}"> 
-          <view class="clearfloat">
-            <view class="fl">
-              <text class="auto-ft">作者回复 </text>
-              <text class="ft">{{item.reply_at}}</text>
-            </view>
-
-            <view class="fr">
-              <image src="../../../image/icon8-on.png" class="icon8"></image>
-              <text class="ft">14</text>
-            </view>
-          </view>
-          <view class="my-content">{{item.reply}}</view>
-        </view> -->
+      </view>
+      <view class='bottomblock'>
+        <view class='date'>{{item.com_time}}</view>
+        <view class='dele' data-id="{{item.art_id}}" bindtap='showdelete' data-id='{{item.com_id}}'>删除</view>
       </view>
     </view>
   </view>
+</view>
+<view class='delete' wx:if="{{showDelete}}">
+<image src='../../../image/delete.png'></image>
+<view class='showts'>君子一言驷马难追！</view>
+<view class='tool'>
+  <view class='dele' bindtap='delete1'>删除</view>
+  <view class='cancel' bindtap='delete0'>悬崖勒马</view>
+</view>
 </view>

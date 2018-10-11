@@ -1,0 +1,87 @@
+/* pages/doctor/index.wxss */
+
+.body {
+  display: flex;
+  height: 100%;
+}
+
+.leftlist {
+  width: 200rpx;
+  height: 100%;
+  background: #fff;
+}
+
+.leftlist .unit {
+  text-align: center;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-family: PingFangHK-Regular;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.leftlist .active {
+  background: #fd7386;
+  color: #fff;
+}
+
+.rightlist {
+  /* width: 550rpx; */
+  width: 750rpx;
+  padding-top: 43rpx;
+  height: calc(100%-43rpx);
+}
+
+.rightlist .unit {
+  float: left;
+  height: 300rpx;
+  margin: 14rpx 40rpx;
+  width: 160rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rightlist .unit image {
+  box-shadow: 0 2rpx 4rpx 0 rgba(149,149,149,0.50);
+  border-radius: 50%;
+  width: 144rpx;
+  height: 144rpx;
+}
+
+.dcname {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.dcmes {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20rpx;
+  color: #999;
+  height: 60rpx;
+  text-align: center
+}
+.rightlist .unit {
+  padding-top: 40rpx;
+  height: 324rpx;
+  margin: 14rpx 40rpx;
+  margin-bottom: 30rpx;
+  width: 278rpx;
+  background: #FFFFFF;
+box-shadow: 1rpx 2rpx 4rpx 0 rgba(149,149,149,0.38);
+border-radius: 6rpx;
+}
+.dcmore{
+  margin-top: 20rpx;
+  font-size: 24rpx;
+color: #666666;
+}
+.dcmes{
+  width: 170rpx;
+}
+.rightlist {
+  width: 730rpx;
+  padding-left: 20rpx;
+}

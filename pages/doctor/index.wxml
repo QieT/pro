@@ -1,0 +1,14 @@
+<!--pages/doctor/index.wxml-->
+<view class='body'>
+  <!-- <view class='leftlist'>
+    <view wx:for="{{list}}" class='{{(activeDepartment==item.dept_id)&& "active"}} unit' bindtap='chooseDepartment' data-id="{{item.dept_id}}">{{item.name}}</view>
+  </view> -->
+  <view class='rightlist'>
+    <view class='unit' wx:for="{{doctors}}" data-id="{{item.id}}" bindtap='todoctor'>
+      <image src="{{item.headimgurl}}"></image>
+      <view class='dcname'>{{item.name}}</view>
+      <view class='dcmes'>{{item.good_at}}</view>
+      <view class='dcmore'>查看更多</view>
+    </view>
+  </view>
+</view>

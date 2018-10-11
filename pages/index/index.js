@@ -1,42 +1,24 @@
 var app = getApp()
-var api = require("../../utils/api.js");
 
 var order = ['red', 'yellow', 'blue', 'green', 'red']
-
-
-var totleCount = 100;
-
+var l=[];
 var GetList = function (that) {
-
 	that.setData({
 		hidden: true
 	});
 	wx.request({
-		url: 'https://win-east.cn/blog/public/api/recomart/0',
+		url: 'https://win-east.cn/blog/public/api/recomart',
 		success: function (data) {
 			console.log('11111',data)
 			if(data.data.status==10001){
-				var l = that.data.list;
-				totleCount = data.data.art.length;
-
-				if (that.data.list.length >= totleCount) {
-					that.setData({
-						lower: true,
-						hidden: true
-					});
-					return;
-				}
-				for (var i = 0; i < data.data.art.length; i++) {
-					l.push(data.data.art[i]);
+        l = data.data.art;
+				for (var i = 0; i < l.length; i++) {
+          l[i].art_show_click > 10000 && (l[i].art_show_click =''+ parseInt(l[i].art_show_click / 10000) + (parseInt(l[i].art_show_click % 10000 / 1000) < 1 ? '.1' : parseInt(l[i].art_show_click % 10000 / 1000))+'万');
 				}
 				that.setData({
-					list: l,
-					hidden: true
+          list: l.slice(0,10)
 				});
-				var page = that.data.page + 1;
-				that.setData({
-					page: page
-				});
+        console.log('ll',l)
 			}
 		}
 	})
@@ -49,6 +31,7 @@ Page({
 	data: {
 		userInfo: {},
 		page: 1,
+    count:10,
 		// loadingHidden: false,
 		// support: '',  //技术支持文字，
 
@@ -62,7 +45,8 @@ Page({
 		autoplay: true,
 		interval: 5000,
 		duration: 1000,
-
+		recommendTopic:[
+		],
 
 		// title: '精选专栏',
 		fixImg: '',
@@ -77,7 +61,6 @@ Page({
 		adShow: false, // 广告展示
 		adList: [] // 广告列表 
 	},
-
 	onLoad: function (options) {
 		var that = this;
 
@@ -117,7 +100,12 @@ Page({
 			}
 		})
 	},
-
+  navigateFun: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/list/index?cid=' + e.currentTarget.dataset.id
+    })
+  },
 	onShow: function () {
 		var that = this;
 
@@ -127,7 +115,15 @@ Page({
 		app.globalData.column_id = 0;
 		app.globalData.column_source = 0;
 		app.globalData.supportBack = 0;
-
+    wx.request({
+      url: 'https://win-east.cn/blog/public/api/recomspe',
+      success:function(res){
+        that.setData({
+          recommendTopic: res.data.special
+        })
+        console.log('10',res.data.special)
+      }
+    })
 		wx.request({
 			url: 'https://win-east.cn/blog/public/api/pol',
 			success: function (data) {
@@ -189,7 +185,7 @@ Page({
 		// category
 		if (e.currentTarget.dataset.id) {
 			wx.navigateTo({
-				url: '/pages/topic1/index?cid=' + e.currentTarget.dataset.id
+				url: '/pages/list1/index?cid=' + e.currentTarget.dataset.id
 			})
 		}
 	},
@@ -229,9 +225,11 @@ Page({
 
 
 	bindDownLoad: function () {
-
-		var that = this;
-		GetList(that);
+		let that = this;
+    that.setData({
+      list:l.slice(0,that.data.count+10),
+      count:that.data.count+10
+    })
 	}
 
 })

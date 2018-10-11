@@ -1,18 +1,23 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/my/index",
     "pages/my/comment/index",
     "pages/topic/index",
-	"pages/topic1/index",
+    "pages/list1/index",
     "pages/list/index",
     "pages/detail/index",
-    "pages/liuyan/index"
+    "pages/doctor/index",
+    "pages/doctorself/index",
+    "pages/liuyan/index",
+    "pages/select/index",
+    "pages/link/index",
+    "pages/like/index"
   ],
   "tabBar": {
-    "color": "#161616",
-    "selectedColor": "#ffce08",
-    "borderStyle": "#858587",
+    "color": "#999999",
+    "selectedColor": "#E98D8D",
+    "borderStyle": "#E98D8D",
     "backgroundColor": "#fff",
     "list": [
       {
@@ -28,6 +33,12 @@
         "text": "专栏"
       },
       {
+        "pagePath": "pages/doctor/index",
+        "iconPath": "image/doctor.png",
+        "selectedIconPath": "image/doctor-on.png",
+        "text": "专家"
+      },
+      {
         "pagePath": "pages/my/index",
         "iconPath": "image/icon2.png",
         "selectedIconPath": "image/icon2-on.png",
@@ -37,9 +48,9 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ffce08",
+    "navigationBarBackgroundColor": "#FD7385",
     "navigationBarTitleText": "家庭育儿商城",
     "backgroundColor": "#1c1b20",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   }
 }

@@ -1,0 +1,41 @@
+<!--pages/doctorself/index.wxml-->
+<scroll-view class='body' bindscrolltolower="moreArt" scroll-y="true">
+<image class='banner' src="../../image/img3.png"></image>
+<view class='head'>
+  <image src="{{doctor.headimgurl}}"></image>
+  <view class='headname'>{{doctor.exp_name}}</view>
+  <view class='headmes'>
+    <text class='hm'>文章数量：{{artlist.length}}</text>
+    <view class='red'></view>
+    <text class='hm'>阅读量：{{doctor.read_total}}</text>
+  </view>
+</view>
+<view class='intro'>
+  <view class='tit'>
+    <text class='red1'></text>关于他</view>
+  <view class='about'>工作于{{doctor.hospital_name}}（{{doctor.hospital_level}}），{{doctor.job_title}}，目前从医{{doctor.work_years_num}}年，擅长{{doctor.good_at}}。</view>
+  <view wx:if="{{toggle}}" class='job'>工作经历</view>
+  <view wx:if="{{toggle}}" class='jobmes'>{{doctor.work_experience}}</view>
+  <view class='toggle' bindtap='changetoggle'>{{toggle?'收起全部':'全部介绍'}}
+    <image src="{{toggle?'../../image/down.png':'../../image/up.png'}}"></image>
+  </view>
+</view>
+<view class='downblock'>
+  <view class='tit'>
+    <text class='red1'></text>他的文章</view>
+</view>
+<view class='artlist' wx:for="{{artlist}}" bindtap='todetail' data-id="{{item.art_id}}">
+  <image class='artimg' src="{{item.art_image_url}}"></image>
+  <view class='artmain'>
+    <view class='arttit'>{{item.art_title}}</view>
+    <view class='artmes'>
+      <image src='../../image/icon10.png'></image>
+      <text>{{item.art_show_click}}</text>
+      <image src='../../image/icon8.png'></image>
+      <text>{{item.art_show_like}}</text>
+      <!-- <image src='../../image/read.png'></image>
+      <text>{{item.com_count}}</text> -->
+    </view>
+  </view>
+</view>
+</scroll-view>

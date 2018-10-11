@@ -116,13 +116,24 @@ function html2json(html, bindName) {
                     // make it array of attribute
                     if (name == 'style') {
                         //  value = value.join("")
-                        node.styleStr = value;
+                        
                     }
                     if (value.match(/ /)) {
                         value = value.split(' ');
                     }
-                    
-
+                    // 处理
+                  // if (value.indexOf("width:") != -1){
+                  //   if (typeof value === 'object') {
+                  //     value[value.indexOf("width:") + 1] = value[value.indexOf("width:") + 1].replace('px', 'rpx')
+                  //   }else{
+                  //   value.replace('px','rpx');
+                  //   }
+                  // }
+                  // if (typeof value === 'object'){
+                  // value = value.join('')
+                  // }
+                  
+                  node.styleStr = value
                     // if attr already exists
                     // merge it
                     if (pre[name]) {

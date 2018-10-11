@@ -128,6 +128,7 @@ function wxAutoImageCal(originalWidth, originalHeight,that,bindName) {
   var results = {};
   var padding = that.data[bindName].view.imagePadding;
   windowWidth = realWindowWidth-60;
+  console.log('windowWidth',windowWidth)
   windowHeight = realWindowHeight;
   //判断按照那种方式进行缩放
   // console.log("windowWidth" + windowWidth);
@@ -139,8 +140,8 @@ function wxAutoImageCal(originalWidth, originalHeight,that,bindName) {
     results.imageWidth = autoWidth;
     results.imageheight = autoHeight;
   } else {//否则展示原来的数据
-    results.imageWidth = originalWidth;
-    results.imageheight = originalHeight;
+    results.imageWidth = originalWidth * realWindowWidth/750;
+    results.imageheight = originalHeight * realWindowWidth / 750;
   }
   return results;
 }
